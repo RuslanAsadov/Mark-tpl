@@ -12,6 +12,7 @@ $(function() {
 	new WOW().init();
 
 	$('.items-two-cols').masonry({
+		itemSelector: '.items-two-cols__item',
 		originLeft: false,
 		percentPosition: true
 	});
