@@ -1,7 +1,7 @@
 $(function() {
 
 	//start preloader
-	window.onload = function() {
+	document.body.onload = function() {
 		setTimeout(function() {
 			$('.preloader').fadeOut('slow');
 			$('header .main-text').addClass('fadeInUp');
