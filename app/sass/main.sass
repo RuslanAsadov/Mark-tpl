@@ -1,0 +1,363 @@
+@import "vars"
+@import "fonts"
+@import "libs"
+
+::placeholder
+	color: #666
+
+::selection
+	background-color: $accent
+	color: #fff
+
+body
+	font-size: 16px
+	min-width: 320px
+	position: relative
+	line-height: 1.65
+	font-family: $default-font
+	overflow-x: hidden
+	color: $text
+	input, textarea
+		border: #666 1px solid
+		outline: none
+		&:focus:required:invalid
+			border-color: red
+		&:required:valid
+			border-color: green
+
+.img-responsive
+	display: block
+	max-width: 100%
+	height: auto
+	&.img-width
+		width: 100%
+
+.text-center
+	text-align: center
+
+b, strong
+	font-weight: bold
+
+.preloader
+	z-index: 100
+	background-color: $accent
+	display: flex
+	align-items: center
+	justify-content: center
+	position: fixed
+	top: 0
+	right: 0
+	bottom: 0
+	left: 0
+
+
+.artboard
+  width: 100%
+  height: 100%
+  display: flex
+  align-items: center
+  justify-content: center
+  flex-direction: row
+  flex-wrap: wrap
+  position: absolute
+  .square
+    display: flex
+    position: absolute
+    border-radius: 3px
+    transform-origin: center center
+    width: 50px
+    height: 50px
+    background: $primary
+    &:nth-child(1)
+      animation: motion 2s  infinite cubic-bezier(.89,.03,.06,1.50)
+    
+  
+  .path
+    display: block
+    position: relative
+    height: 10px
+    width: 80px
+    overflow: hidden
+    top: 35px
+    .small-squares > div
+      position: absolute
+      display: inline-flex
+      width: 10px
+      height: 10px
+      background: $secondary
+      margin: 0px 15px
+      top: 0px
+      left: 0
+      animation: dynamic 4s  infinite cubic-bezier(.89,.03,.06,1.50)   
+      @for $i from 0 through 7
+        &:nth-child(#{$i + 1 } )
+          left: #{40 * $i}px
+          
+      
+      
+     
+//animation
+@keyframes beat
+  to 
+    transform: scale(1.4)
+@keyframes motion
+  50% 
+    transform: rotate(90deg)
+  100%
+    transform: rotate(180deg)
+  
+
+@keyframes dynamic
+  0%
+    transform: translateX(0px)
+  25%
+    transform: translateX(-40px)
+  50%
+    transform: translateX(-80px)
+  75%
+    transform: translateX(-120px)
+  100% 
+    transform: translateX(-160px)
+
+	
+
+.header
+	width: 100vw
+	min-height: 100vh
+	display: flex
+	align-items: center
+	justify-content: center
+	padding: 200px 0
+
+.main-text
+	text-align: center
+	margin: 0 auto
+
+.main-text__title
+	font-size: 38px
+	font-family: Caladea, sans-serif
+	margin-bottom: 30px
+	line-height: 1
+	font-weight: normal
+	color: #333
+
+.main-text__main-word
+	color: $accent
+
+.main-text__text
+	font-size: 16px
+	line-height: 2
+	font-family: Aileron, sans-serif
+	margin: 0
+	
+.right-sidebar
+	position: absolute
+	right: 5px
+	top: 0
+	bottom: 0
+	display: flex
+	flex-direction: column
+	align-items: center
+	width: 7%
+	height: 100%
+	padding-top: 5%
+
+.right-sidebar__item
+	padding: 6px
+	transition: all .25s ease
+	color: #7f7f7f
+	background-color: transparent
+	border: none
+	cursor: pointer
+	.fa
+		font-size: 22px
+	&:hover
+		color: darken(#7F7F7F, 10%)
+	&:focus
+		box-shadow: 0px 0px 8px 1px rgba(0,0,0,0.13)
+
+.my-hamburger
+	padding-top: 10px
+
+.menu
+	z-index: 20
+	width: 400px
+	background-color: #e9e9e9
+	position: fixed
+	left: -100%
+	top: 0
+	bottom: 0
+	transition: all .5s ease-out
+	text-align: center
+	display: none
+	&.active
+		box-shadow: 0px 0px 500px 20px rgba(0,0,0,0.5)
+		left: 0
+		
+.menu__list
+	list-style-type: none
+	display: flex
+	flex-direction: column
+	padding: 0
+	margin: 0
+
+.menu__item
+	width: 100%
+	border-top: 1px solid #999
+	border-bottom: 1px solid #999
+	margin-top: -1px
+
+.menu__link
+	padding: 10px 0
+	font-family: Caladea, sans-serif
+	font-size: 16px
+	text-transform: uppercase
+	color: #333
+	display: block
+	height: 100%
+	width: 100%
+	&:hover
+		text-decoration: none
+		color: #333
+	&:focus
+		text-decoration: underline
+		background-color: darken(#e9e9e9, 10%)
+
+.menu__title
+	font-family: Caladea, sans-serif
+	font-size: 30px
+	color: #d63c37
+	&:hover
+		text-decoration: none
+		color: #d63c37
+	&:focus
+		text-decoration: underline
+
+.form-search
+	display: flex
+	position: relative
+
+.form-search__input
+	display: none
+	opacity: 0
+	transition: all .25s ease
+	padding: 0
+	margin: 0
+	position: absolute
+	right: -5px
+	top: 50%
+	transform: translate(0, -50%)
+	border-radius: 5px
+	background-color: #fafafa
+	height: 45px
+	width: 170px
+	z-index: 9
+	padding-left: 10px
+	padding-right: 37px
+	&:focus, &:hover
+		display: block
+		opacity: 1
+		box-shadow: 0px 0px 8px 1px rgba(0,0,0,0.13)
+
+.form-search__button
+	z-index: 10
+	&:hover, &:focus
+		~ .form-search__input
+			display: block
+			opacity: 1
+
+.section-introducing
+	.main-text__main-word
+		text-decoration: underline
+	.main-text
+		text-align: left
+		margin-top: 15%
+		padding-left: 30px
+		.main-text__text
+			padding-left: 15%
+	.introducing-img
+		margin-top: 25%
+		width: 40%
+
+.section-introducing__wrap
+	display: flex
+	justify-content: center
+
+.introducing__item
+	width: 60%
+
+.main-list
+	margin-left: 15%
+	padding-left: 40px
+
+.main-list__item
+	padding-top: 30px
+
+.main-list__title
+	position: relative
+	color: $accent
+	font-weight: normal
+	font-size: 18px
+	.fa
+		position: absolute
+		top: 6px
+		left: -30px
+
+.main-list__desc
+	margin: 0
+
+.section-discover
+	background-color: $accent
+	padding: 100px 0
+	.main-text__title
+		text-align: right
+		color: #fff
+		text-decoration: underline
+		margin-right: 10%
+		margin-bottom: 10%
+
+.items-two-cols__item
+	width: 45%
+	margin: 10px
+	text-align: right
+	display: flex
+	color: #333
+	padding: 20px 0
+	&:hover
+		.items-two-cols__icon
+			background: #fff
+			.fa
+				color: $accent
+	
+.items-two-cols__title
+	font-size: 25px
+	font-weight: bold
+
+.items-two-cols__text
+	margin: 0
+	line-height: 2.3
+
+.items-two-cols__icon
+	text-align: center
+	border: 4px solid #fff
+	border-radius: 50%
+	height: 50px
+	width: 50px
+	flex: none
+	display: flex
+	justify-content: center
+	align-items: center
+	margin-left: 20px
+	transition: .25s ease
+	.fa
+		color: #fff
+		font-size: 18px
+
+footer
+	background-color: #ffffff
+	padding: 20px 0
+
+.footer-text
+	text-align: right
+
+@import "media" // Always at the end
