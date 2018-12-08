@@ -17,17 +17,36 @@ $(function() {
 		percentPosition: true
 	});
 
-	$('.my-hamburger, .menu__link, .cls-menu').click(function() {
-		$('.my-hamburger').toggleClass('is-active');
-		$('.cls-menu').toggleClass('menu-open');
-		if($('.my-hamburger').hasClass('is-active')) {
-			$('.menu').show(1);
-			$('.menu').addClass('active');
-		} else {
-			$('.menu').removeClass('active').delay(1000);
-			$('.menu').hide(1);
+	$('.menu').mmenu({
+		extensions: [
+			"position-front",
+			"position-left",
+			"fx-panels-none",
+			"fx-listitems-drop",
+			'pagedim-black'
+	 ],
+	 navbar: {
+		title: '<a href="#" class="menu__title">Mark</a>'
+	}
+	});
+
+	var api = $('.menu').data( 'mmenu' );
+	
+	api.bind( 'open:start', function() {
+		$('.my-hamburger').addClass('is-active');
+	});
+	api.bind( 'close:after', function() {
+		$('.my-hamburger').removeClass('is-active');
+	});
+
+	$('.my-hamburger').click(function() {
+		if($('.menu').hasClass('mm-menu_opened')) {
+			api.close();
+		} else{
+			api.open();
 		}
 	});
+
 
 	$('.menu__link').click(function() {
 		slowScroll($(this).attr('href'));

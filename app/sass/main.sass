@@ -194,43 +194,19 @@ section
 .my-hamburger
 	padding-top: 10px
 
-.menu
-	z-index: 20
-	width: 400px
-	background-color: #e9e9e9
-	position: fixed
-	left: -100%
-	top: 0
-	bottom: 0
-	transition: all .25s ease-out
-	text-align: center
-	display: none
-	&.active
-		box-shadow: 0px 0px 500px 20px rgba(0,0,0,0.5)
-		left: 0
-
-.menu__list
-	list-style-type: none
-	display: flex
-	flex-direction: column
+.mm-navbar__title
 	padding: 0
-	margin: 0
 
-.menu__item
-	width: 100%
-	border-top: 1px solid #999
-	border-bottom: 1px solid #999
-	margin-top: -1px
+.mm-panel
+	padding: 0
+	padding-top: 44px
 
 .menu__link
+	text-align: center
 	padding: 10px 0
 	font-family: Caladea, sans-serif
 	font-size: 16px
-	text-transform: uppercase
 	color: #333
-	display: block
-	height: 100%
-	width: 100%
 	&:hover
 		text-decoration: none
 		color: #333
@@ -241,7 +217,7 @@ section
 .menu__title
 	font-family: Caladea, sans-serif
 	font-size: 30px
-	color: #d63c37
+	color: #d63c37 !important
 	&:hover
 		text-decoration: none
 		color: #d63c37
