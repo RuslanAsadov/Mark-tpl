@@ -39,7 +39,7 @@ $(function() {
 		$('.my-hamburger').removeClass('is-active');
 	});
 
-	$('.my-hamburger').click(function() {
+	$('.my-hamburger, .mm-listitem').click(function() {
 		if($('.menu').hasClass('mm-menu_opened')) {
 			api.close();
 		} else{
