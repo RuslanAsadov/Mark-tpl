@@ -50,6 +50,8 @@ b, strong
 	bottom: 0
 	left: 0
 
+section
+	padding: 100px 0
 
 .artboard
   width: 100%
@@ -119,7 +121,20 @@ b, strong
   100% 
     transform: translateX(-160px)
 
-	
+.page
+	width: 100vw
+
+.cls-menu
+	overflow: hidden
+	transition: .25s ease
+	&.menu-open
+		position: fixed
+		top: 0
+		right: 0
+		bottom: 0
+		left: 0
+		background: #000
+		opacity: 0.3
 
 .header
 	width: 100vw
@@ -193,7 +208,7 @@ b, strong
 	&.active
 		box-shadow: 0px 0px 500px 20px rgba(0,0,0,0.5)
 		left: 0
-		
+
 .menu__list
 	list-style-type: none
 	display: flex
@@ -267,7 +282,7 @@ b, strong
 			opacity: 1
 
 .section-introducing
-	padding-top: 100px
+	padding-bottom: 0
 	.main-text__main-word
 		text-decoration: underline
 	.main-text
@@ -276,7 +291,7 @@ b, strong
 		.main-text__text
 			padding-left: 15%
 	.introducing-img
-		margin-top: 25%
+		margin-top: 100px
 		width: 40%
 
 .section-introducing__wrap
@@ -308,7 +323,6 @@ b, strong
 
 .section-discover
 	background-color: $accent
-	padding: 100px 0
 	.main-text__title
 		text-align: right
 		color: #fff
